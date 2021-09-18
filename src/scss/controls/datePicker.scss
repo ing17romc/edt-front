@@ -1,0 +1,41 @@
+@import '../variables.scss';
+@import '../functions.scss';
+
+$column-width: 8;
+
+.container-date {
+    display: grid;
+    grid-column-gap: calculateSizeVW($column-width);
+    grid-row-gap: 0px;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    .title {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row: 1;
+    }
+    .day {
+    
+        grid-column: 1;
+        grid-row: 2;
+    }
+    .month {
+    
+        grid-column: 2;
+        grid-row: 2;
+    }
+    .year {
+    
+        grid-column: 3;
+        grid-row: 2;
+    }
+    & input {
+        text-align: center;
+    }
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+    .container-date {
+        grid-column-gap: calculateSizePX($column-width);
+    }
+}

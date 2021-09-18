@@ -1,0 +1,49 @@
+@import "../variables.scss";
+@import "../functions.scss";
+
+$size-lg: 48;
+$size-md: 36;
+$size-sm: 30;
+$size-xs: 24;
+
+.container-icon {
+    display: inline-block;
+
+    &.lg > img {
+        height: calculateSizeVW($size-lg);
+        width: calculateSizeVW($size-lg);
+    }
+    &.md > img {
+        height: calculateSizeVW($size-md);
+        width: calculateSizeVW($size-md);
+    }
+    &.sm > img {
+        height: calculateSizeVW($size-sm);
+        width: calculateSizeVW($size-sm);
+    }
+    &.xs > img {
+        height: calculateSizeVW($size-xs);
+        width: calculateSizeVW($size-xs);
+    }
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+    .container-icon {
+        &.lg > img {
+            height: calculateSizePX($size-lg);
+            width: calculateSizePX($size-lg);
+        }
+        &.md > img {
+            height: calculateSizePX($size-md);
+            width: calculateSizePX($size-md);
+        }
+        &.sm > img {
+            height: calculateSizePX($size-sm);
+            width: calculateSizePX($size-sm);
+        }
+        &.xs > img {
+            height: calculateSizePX($size-xs);
+            width: calculateSizePX($size-xs);
+        }
+    }
+}

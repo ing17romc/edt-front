@@ -1,0 +1,41 @@
+@import '../variables.scss';
+@import '../functions.scss';
+
+$width: 550;
+$size: 80;
+$border: 7;
+
+.body-generic-notifications {
+    width: calculateSizeVW($width);
+    & .circle {
+        width: calculateSizeVW($size);
+        height: calculateSizeVW($size);
+        border-radius: 50%;
+        border: calculateSizeVW($border) solid $white-color;
+        border-style: double;
+        color: $white-color;
+        &.error {
+            background-color: $red-color;
+        }
+        &.warning {
+            background-color: $orange-color;
+        }
+        &.successful {
+            background-color: $green-color;
+        }
+        &.info {
+            background-color: $light-blue-color;
+        }
+    }
+}
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+    .body-generic-notifications {
+        width: calculateSizePX($width);
+        & .circle {
+            width: calculateSizePX($size);
+            height: calculateSizePX($size);
+            border: calculateSizePX($border) solid $white-color;
+            border-style: double;
+        }
+    }
+}

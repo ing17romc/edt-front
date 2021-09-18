@@ -1,0 +1,55 @@
+@import "../variables.scss";
+@import "../functions.scss";
+
+$size-container: 160;
+$border-container: 1;
+$size-img: 65;
+$border-hr: 1;
+
+.container-option {
+
+    cursor: pointer;
+    margin: auto auto;
+    display: block;
+    padding: 3%;
+    border-radius: 10%;
+    height: calculateSizeVW($size-container);
+    width: calculateSizeVW($size-container);
+    text-decoration: none;
+    color: $blue-color;
+    border: calculateSizeVW($border-container) solid $blue-color;
+
+    & img {
+        margin: auto auto;
+        height: calculateSizeVW($size-img);
+        width: calculateSizeVW($size-img);
+    }
+
+    & hr {
+        margin: auto auto;
+        border: calculateSizeVW($border-hr) $gray-color solid;
+        margin: 4%;
+    }
+
+    & p {
+        text-align: center;
+        padding: 3%;
+    }
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+    .container-option {
+        border: calculateSizePX($border-container) solid $blue-color;
+        height: calculateSizePX($size-container);
+        width: calculateSizePX($size-container);
+
+        & img {
+            height: calculateSizePX($size-img);
+            width: calculateSizePX($size-img);
+        }
+
+        & hr {
+            border: calculateSizePX($border-hr) $gray-color solid;
+        }
+    }
+}

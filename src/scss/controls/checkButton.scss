@@ -1,0 +1,128 @@
+@import '../variables.scss';
+@import '../functions.scss';
+
+$size-md: 18;
+$border: 1;
+$border-2: 2;
+$label-height: 18;
+$label-padding-top: 1;
+$label-padding-left: 8;
+$label-line-height: 18;
+
+.checkbutton {
+    text-align: left;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    & label {
+        font-size: calculateSizeVW($font-size-control);
+        position: relative;
+        height: calculateSizeVW($label-height);
+        padding-top: calculateSizeVW($label-padding-top);
+        padding-left: calculateSizeVW($label-padding-left);
+        cursor: pointer;
+        line-height: calculateSizeVW($label-line-height);
+        display: inline-block;
+        color: $black-color;
+    }
+
+    & input[type='checkbox'] {
+        position: relative;
+        cursor: pointer;
+        width: calculateSizeVW($size-md);
+        height: calculateSizeVW($size-md);
+        margin: 0px;
+        -moz-appearance: initial;
+    }
+
+    & input[type='checkbox']:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: $white-color 0% 0% no-repeat padding-box;
+        border: calculateSizeVW($border) solid $black-color;
+        opacity: 1;
+    }
+
+    & input[type='checkbox']:checked:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: $blue-color;
+        border: calculateSizeVW($border) solid $black-color;
+        opacity: 1;
+    }
+
+    & input[type='checkbox']:checked:after {
+        content: '';
+        width: 30%;
+        height: 60%;
+        background: transparent;
+        border-bottom: solid calculateSizeVW($border-2) $white-color;
+        border-right: solid calculateSizeVW($border-2) $white-color;
+        display: block;
+        margin-top: calculateSizeVW($border-2);
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: auto;
+        -webkit-transform: rotate(35deg);
+        -ms-transform: rotate(35deg);
+        transform: rotate(35deg);
+    }
+    &.required {
+        & > label {
+            color: $red-color;
+        }
+
+        & > input[type='checkbox']:before,
+        & > input[type='checkbox']:checked:before {
+            border: calculateSizeVW($border) solid $red-color;
+        }
+    }
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+    .checkbutton {
+        & label {
+            font-size: calculateSizePX($font-size-control);
+            height: calculateSizePX($label-height);
+            padding-top: calculateSizePX($label-padding-top);
+            padding-left: calculateSizePX($label-padding-left);
+            line-height: calculateSizePX($label-line-height);
+        }
+
+        & input[type='checkbox'] {
+            width: calculateSizePX($size-md);
+            height: calculateSizePX($size-md);
+        }
+
+        & input[type='checkbox']:before {
+            border: calculateSizePX($border) solid $black-color;
+        }
+
+        & input[type='checkbox']:checked:before {
+            border: calculateSizePX($border) solid $black-color;
+        }
+
+        & input[type='checkbox']:checked:after {
+            border-bottom: solid calculateSizePX($border-2) $white-color;
+            border-right: solid calculateSizePX($border-2) $white-color;
+            margin-top: calculateSizePX($border-2);
+        }
+        &.required {
+            & > input[type='checkbox']:before,
+            & > input[type='checkbox']:checked:before {
+                border: calculateSizePX($border) solid $red-color;
+            }
+        }
+    }
+}

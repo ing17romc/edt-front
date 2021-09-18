@@ -1,0 +1,138 @@
+@import '../../../../recursos/scss/funciones.scss';
+@import '../../../../node_modules/red-unica/src/scss/funciones.scss';
+
+$ancho-modal-documento: 600;
+
+$relleno-horizontal-cabecero: 20;
+$relleno-inferior-cabecero: 10;
+
+$relleno-superior-menu: 50;
+$relleno-izquierdo-menu: 20;
+
+$relleno-visor-pdf: 10;
+$ancho-visor-pdf: 350;
+$alto-visor-pdf: 500;
+
+$relleno-inferior-listado-documentos: 10;
+$tamaño-columna-listado-documentos: 25;
+
+$relleno-superior-verificado: 7;
+
+$margen-horizontal-boton-impresion: 10;
+
+.modal-documentos {
+    width: unidadPixel($ancho-modal-documento);
+    height: 100%;
+    display: grid;
+    grid-template-areas: 'cabecero cabecero cabecero' 'menu cuerpo cuerpo' 'menu pie pie';
+    grid-gap: 1px;
+    .cabecero {
+        grid-area: cabecero;
+        padding: {
+            left: calcularTamanio($relleno-horizontal-cabecero);
+            right: calcularTamanio($relleno-horizontal-cabecero);
+            bottom: calcularTamanio($relleno-inferior-cabecero);
+            top: 0px;
+        }
+    }
+    .menu {
+
+        grid-area: menu;
+        opacity: 1;
+        padding-top: calcularTamanio($relleno-superior-menu);
+        padding-left: calcularTamanio($relleno-izquierdo-menu);
+        padding-bottom: calcularTamanio($relleno-izquierdo-menu);
+        .listado-documentos  {
+            display: grid;
+            grid-template-columns: calcularTamanio($tamaño-columna-listado-documentos) auto;
+            padding-bottom: calcularTamanio($relleno-inferior-listado-documentos);
+            .verificado {
+                padding-top: calcularTamanio($relleno-superior-verificado);
+            }
+            .titulo {
+                border: 0px;
+            }
+        }
+        .boton-impresion
+        {
+            margin: {
+                top: calcularTamanio($margen-horizontal-boton-impresion);
+                right: calcularTamanio($margen-horizontal-boton-impresion);
+            }  
+        }
+    }
+    .cuerpo  {
+        grid-area: cuerpo;
+        .visor-pdf {
+            display: block;
+            padding: calcularTamanio($relleno-visor-pdf);
+            width: unidadPixel($ancho-visor-pdf);
+            height: unidadPixel($alto-visor-pdf);
+        }
+
+        .visor-html {
+            overflow: auto;
+            text-align: left;
+            border: 1px solid lightgray;
+            display: block;
+            padding: calcularTamanio($relleno-visor-pdf);
+            width: unidadPixel($ancho-visor-pdf);
+            height: unidadPixel($alto-visor-pdf);
+        }
+    }
+    .pie {
+        grid-area: pie;
+        .paginacion-documento {
+            display: inline-block;
+            width: 52%;
+        }
+        .boton-aceptar {
+            display: inline-block;
+            width: 40%;
+        }
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .modal-documentos {
+        //width: unidadPixel($ancho-modal-documento);
+        .cabecero {
+            padding: {
+                left: unidadPixel($relleno-horizontal-cabecero);
+                right: unidadPixel($relleno-horizontal-cabecero);
+                bottom: unidadPixel($relleno-inferior-cabecero);
+            }
+        }
+        .menu {
+            padding-top: unidadPixel($relleno-superior-menu);
+            padding-left: unidadPixel($relleno-izquierdo-menu);
+            padding-bottom: unidadPixel($relleno-izquierdo-menu);
+            .listado-documentos  {
+                grid-template-columns: unidadPixel($tamaño-columna-listado-documentos) auto;
+                padding-bottom: unidadPixel($relleno-inferior-listado-documentos);
+                .verificado {
+                    padding-top: unidadPixel($relleno-superior-verificado);
+                }
+            }
+            .boton-impresion
+            {
+                margin: {
+                    top: unidadPixel($margen-horizontal-boton-impresion);
+                    right: unidadPixel($margen-horizontal-boton-impresion);
+                }  
+            }
+        }
+        .cuerpo  {
+            .visor-pdf {
+                padding: unidadPixel($relleno-visor-pdf);
+                width: unidadPixel($ancho-visor-pdf);
+                height: unidadPixel($alto-visor-pdf);
+            }
+            .visor-html {
+                padding: unidadPixel($relleno-visor-pdf);
+                width: unidadPixel($ancho-visor-pdf);
+                height: unidadPixel($alto-visor-pdf);
+            }
+        }
+    }
+}

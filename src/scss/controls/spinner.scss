@@ -1,0 +1,117 @@
+@import '../variables.scss';
+@import '../functions.scss';
+
+$color-one: $light-blue-color;
+$color-two: $blue-color;
+$color-three: $dark-blue-color;
+$bg-spinner: $black-color;
+
+$size-loading: 150;
+$margin-loading: 300;
+$border-loading: 2.5;
+
+$position-sm: 5;
+$position-md: 15;
+
+div.container-load {
+  overflow: hidden;
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  background: transparentize($color: $color-one, $amount: 0.8);
+
+  .loading {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    width: calculateSizeVW($size-loading);
+    height: calculateSizeVW($size-loading);
+    top: 0;
+    left: 0;
+    margin: calculateSizeVW($margin-loading) auto;
+    border-radius: 50%;
+    border-width: calculateSizeVW($border-loading);
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: $color-three;
+    animation: spin 2s linear infinite;
+  }
+
+  .loading:before {
+    content: '';
+    position: absolute;
+    top: calculateSizeVW($position-sm);
+    left: calculateSizeVW($position-sm);
+    right: calculateSizeVW($position-sm);
+    bottom: calculateSizeVW($position-sm);
+    border-radius: 50%;
+    border: calculateSizeVW($border-loading) solid transparent;
+    border-top-color: $color-two;
+    animation: spin 3s linear infinite;
+  }
+
+  .loading:after {
+    content: '';
+    position: absolute;
+    top: calculateSizeVW($position-md);
+    left: calculateSizeVW($position-md);
+    right: calculateSizeVW($position-md);
+    bottom: calculateSizeVW($position-md);
+    border-radius: 50%;
+    border: calculateSizeVW($border-loading) solid transparent;
+    border-top-color: $bg-spinner;
+    animation: spin 1.5s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+  div.container-load {
+    .loading {
+      width: calculateSizePX($size-loading);
+      height: calculateSizePX($size-loading);
+      margin: calculateSizePX($margin-loading) auto;
+      border-width: calculateSizePX($border-loading);
+    }
+
+    .loading:before {
+      top: calculateSizePX($position-sm);
+      left: calculateSizePX($position-sm);
+      right: calculateSizePX($position-sm);
+      bottom: calculateSizePX($position-sm);
+      border: calculateSizePX($border-loading) solid transparent;
+      border-top-color: $color-two;
+    }
+
+    .loading:after {
+      top: calculateSizePX($position-md);
+      left: calculateSizePX($position-md);
+      right: calculateSizePX($position-md);
+      bottom: calculateSizePX($position-md);
+      border: calculateSizePX($border-loading) solid transparent;
+      border-top-color: $bg-spinner;
+    }
+  }
+}

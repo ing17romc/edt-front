@@ -1,0 +1,17 @@
+@import '../variables.scss';
+@import '../functions.scss';
+
+.modal-container {
+    display: block;
+    text-align: right;
+    .modal-close-button {
+        display: inline;
+        cursor: pointer;
+    }
+}
+.modal-body {
+    display: block;
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+}

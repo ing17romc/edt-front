@@ -1,0 +1,110 @@
+@import '../variables.scss';
+@import '../functions.scss';
+
+$border: 1;
+$size-md: 18;
+$size-sm: 14;
+$size-after: 2;
+$label-height: 18;
+$label-padding-top: 1;
+$label-padding-left: 28;
+$label-line-height: 18;
+
+.radiobutton {
+  &.required > label {
+    color: $red-color;
+  }
+
+  &.required {
+    input[type='radio'] {
+      & + label {
+        &:before {
+          border: calculateSizeVW($border) solid $red-color;
+        }
+      }
+    }
+  }
+
+  input[type='radio'] {
+    display: none;
+
+    & + label {
+      font-size: calculateSizeVW($font-size-control);
+      position: relative;
+      height: calculateSizeVW($label-height);
+      padding-top: calculateSizeVW($label-padding-top);
+      padding-left: calculateSizeVW($label-padding-left);
+      cursor: pointer;
+      line-height: calculateSizeVW($label-line-height);
+      display: inline-block;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: calculateSizeVW($size-md);
+        height: calculateSizeVW($size-md);
+        border: calculateSizeVW($border) solid $black-color;
+        border-radius: 100%;
+        background-color: $white-color;
+      }
+
+      &:after {
+        content: '';
+        width: calculateSizeVW($size-sm);
+        height: calculateSizeVW($size-sm);
+        background-color: $blue-color;
+        position: absolute;
+        top: calculateSizeVW($size-after);
+        left: calculateSizeVW($size-after);
+        border-radius: 100%;
+      }
+    }
+  }
+
+  input[type='radio']:not(:checked) + label:after {
+    display: none;
+  }
+
+  input[type='radio']:checked + label:after {
+    display: block;
+  }
+}
+
+@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+  .radiobutton {
+    &.required {
+      input[type='radio'] {
+        & + label {
+          &:before {
+            border: calculateSizePX($border) solid $red-color;
+          }
+        }
+      }
+    }
+
+    input[type='radio'] {
+      & + label {
+        font-size: calculateSizePX($font-size-control);
+        height: calculateSizePX($label-height);
+        padding-top: calculateSizePX($label-padding-top);
+        padding-left: calculateSizePX($label-padding-left);
+        line-height: calculateSizePX($label-line-height);
+
+        &:before {
+          width: calculateSizePX($size-md);
+          height: calculateSizePX($size-md);
+          border: calculateSizePX($border) solid $black-color;
+        }
+
+        &:after {
+          width: calculateSizePX($size-sm);
+          height: calculateSizePX($size-sm);
+          top: calculateSizePX($size-after);
+          left: calculateSizePX($size-after);
+        }
+      }
+    }
+  }
+}

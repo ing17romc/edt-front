@@ -1,0 +1,95 @@
+@import '../variables.scss';
+@import '../functions.scss';
+
+$button-large: 48;
+$font-size-large: $fs-24;
+
+$button-normal: 42;
+$font-size-normal: $fs-18;
+
+$button-small: 36;
+$font-size-small: $fs-14;
+
+$button-extra-small: 30;
+$font-size-extra-small: $fs-12;
+
+$border-radius: 4;
+$border-size: 1;
+
+button {
+    display: inline;
+
+    border-radius: calculateSizeVW($border-radius);
+    width: 100%;
+    cursor: pointer;
+
+    &:disabled {
+        opacity: $disabled-opacity
+    }
+
+    &.primary {
+        background-color: $blue-color;
+        color: $white-color;
+        border: calculateSizeVW($border-size) solid $blue-color;
+    }
+
+    &.secondary {
+        background-color: $white-color;
+        color: $blue-color;
+        border: calculateSizeVW($border-size) solid $blue-color;
+    }
+
+    &.lg {
+        height: calculateSizeVW($button-large);
+        font-size: calculateSizeVW($font-size-large);
+    }
+
+    &.md {
+        height: calculateSizeVW($button-normal);
+        font-size: calculateSizeVW($font-size-normal);
+    }
+
+    &.sm {
+        height: calculateSizeVW($button-small);
+        font-size: calculateSizeVW($font-size-small);
+    }
+
+    &.xs {
+        height: calculateSizeVW($button-extra-small);
+        font-size: calculateSizeVW($font-size-extra-small);
+    }
+}
+
+@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+    button {
+        border-radius: calculateSizePX($border-radius);
+
+        &.primary {
+            border: calculateSizePX($border-size) solid $blue-color;
+        }
+
+        &.secondary {
+            border: calculateSizePX($border-size) solid $blue-color;
+        }
+
+        &.lg {
+            height: calculateSizePX($button-large);
+            font-size: calculateSizePX($font-size-large);
+        }
+
+        &.md {
+            height: calculateSizePX($button-normal);
+            font-size: calculateSizePX($font-size-normal);
+        }
+
+        &.sm {
+            height: calculateSizePX($button-small);
+            font-size: calculateSizePX($font-size-small);
+        }
+
+        &.xs {
+            height: calculateSizePX($button-extra-small);
+            font-size: calculateSizePX($font-size-extra-small);
+        }
+    }
+}
