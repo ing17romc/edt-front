@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { getValueInput } from '../../components/utils/functions';
 import { civilStatus } from '../data';
-//import UI from '../../components/controls';
-import UI from 'edt-lib';
+import UI, { functions }  from 'edt-lib';
 
 /**
  * @decriptionFuntion Seach Results Component
@@ -11,6 +9,8 @@ import UI from 'edt-lib';
 
 
 const Form = () => {
+
+    const { getValueInput } = functions;
 
     const [state, setstate] = useState({
         name: 'Rafael Orlando',

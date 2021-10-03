@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-//import UI from '../src/components/controls';
 import UI from 'edt-lib';
 import Form from './pages/Forms';
 import Modals from './pages/Modals';
@@ -10,7 +9,6 @@ import Controls from './pages/Controls';
 import Description from './pages/Description';
 import Camera from './pages/Camera';
 import Tables from './pages/Tables';
-//import '../src/scss/index.scss';
 import '../node_modules/edt-lib/src/scss/index.scss';
 
 const leftOptions = [

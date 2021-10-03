@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { getValueInput } from '../../components/utils/functions';
-//import UI from '../../components/controls';
-import UI from 'edt-lib';
+import UI, { functions } from 'edt-lib';
 import { valuesSelector } from '../data';
 
 /**
@@ -11,12 +9,14 @@ import { valuesSelector } from '../data';
 
 const Form = () => {
 
+    const { getValueInput } = functions;
+    
     const [state, setstate] = useState({
         text: 'This is a text example',
         checkButton: false,
         radioButton: '',
         selector: '',
-        datePicker:  new Date().toString(),
+        datePicker: new Date().toString(),
         inputDisabled: false,
         inputRequired: false,
         inputReadOnly: false,
@@ -130,8 +130,8 @@ const Form = () => {
                         <h4>DatePicker</h4>
                     </div>
                     <div className='start-1 size-6 padding-v-20'>
-                    <UI.DatePicker id='datePicker' value={state.datePicker} eventChange={e => onInputChange(e)} title='Date'  disabled={state.inputDisabled} required={state.inputRequired} readOnly={state.inputReadOnly} />
-   
+                        <UI.DatePicker id='datePicker' value={state.datePicker} eventChange={e => onInputChange(e)} title='Date' disabled={state.inputDisabled} required={state.inputRequired} readOnly={state.inputReadOnly} />
+
                     </div>
                 </div>
 
@@ -238,7 +238,7 @@ const Form = () => {
 
                     <div className='size-3 padding-v-20'>
                         <UI.ImageButton id='imageButton' icon='email' text='email' onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
-                        <UI.ImageButton id='imageButton' icon='chat' text='chat'  onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
+                        <UI.ImageButton id='imageButton' icon='chat' text='chat' onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
                     </div>
 
                 </div>

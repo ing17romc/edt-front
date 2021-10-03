@@ -17,3 +17,26 @@ export const valuesSelector = [
     { key: '1', value: 'Two' },
     { key: '2', value: 'Three' }
 ];
+
+export const dataTable = [
+    {
+        name: 'Rafael',
+        userName: 'rmarquez',
+        status: 1,
+    },
+    {
+        name: 'Orlando',
+        userName: 'ocedeno',
+        status: 1,
+    },
+    {
+        name: 'Sara',
+        userName: 'smarquez',
+        status: 1,
+    },
+    {
+        name: 'Moraima',
+        userName: 'mcedeno',
+        status: 1,
+    },
+]

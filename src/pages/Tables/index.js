@@ -1,36 +1,12 @@
 import React from 'react';
-//import UI from '../../components/controls';
 import UI from 'edt-lib';
-
+import { dataTable } from '../data'
 /**
  * @decriptionFuntion Seach Results Component
  * @author Rafael Orlando Márquez Cedeño
  */
 
 const Modales = () => {
-
-    const dataTable = [
-        {
-            name: 'Rafael',
-            userName: 'rmarquez',
-            status: 1,
-        },
-        {
-            name: 'Orlando',
-            userName: 'ocedeno',
-            status: 1,
-        },
-        {
-            name: 'Sara',
-            userName: 'smarquez',
-            status: 1,
-        },
-        {
-            name: 'Moraima',
-            userName: 'mcedeno',
-            status: 1,
-        },
-    ]
 
     return <>
         <div className='container-body'>

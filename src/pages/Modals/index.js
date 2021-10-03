@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { getValueInput, getOptionsSelector } from '../../components/utils/functions';
-import { TYPE_NOTIFICATION } from '../../components/utils/constant';
 import { httpCodes } from '../data';
-//import UI from '../../components/controls';
-import UI from 'edt-lib';
+import UI, { functions, CONSTANT } from 'edt-lib';
 
 /**
  * @decriptionFuntion Seach Results Component
@@ -12,6 +9,9 @@ import UI from 'edt-lib';
 
 
 const Modales = () => {
+
+    const { TYPE_NOTIFICATION } = CONSTANT;
+    const { getValueInput, getOptionsSelector } = functions;
 
     const [state, setstate] = useState({
         typeNotification: 'info',
@@ -82,7 +82,7 @@ const Modales = () => {
                         <UI.Button title='Mostrar Generico' type='secondary' onClick={() => setModal(!modal)} />
                     </div>
                     <div className='start-1 size-20 padding-v-10'>
-                        <UI.TextButton id='btnModalViewerPDF' text=' Mostrar visor de PDF ' onClick={() =>  setModalViewerPDF(!modalViewerPDF)} />
+                        <UI.TextButton id='btnModalViewerPDF' text=' Mostrar visor de PDF ' onClick={() => setModalViewerPDF(!modalViewerPDF)} />
                     </div>
 
                 </div>

@@ -1,22 +1,5 @@
 import React from 'react';
-//import UI from '../../components/controls';
-import UI from 'edt-lib';
-import {
-    SIZE_CONTROL,
-    ACTION_ICONS,
-    ALERT_ICONS,
-    AUDIO_AND_VIDEO_ICONS,
-    COMMUNICATION_ICONS,
-    CONTENT_ICONS,
-    DIVICE_ICONS,
-    EDITOR_ICONS,
-    FILE_ICONS,
-    HARDWARE_ICONS,
-    IMAGE_ICONS,
-    NAVIGATION_ICONS,
-    NOTIFICATION_ICONS,
-    SOCIAL_ICONS,
-} from '../../components/utils/constant';
+import UI, { CONSTANT } from 'edt-lib';
 
 /**
  * @decriptionFuntion Seach Results Component
@@ -24,6 +7,23 @@ import {
  */
 
 const Icons = () => {
+
+    const {
+        SIZE_CONTROL,
+        ACTION_ICONS,
+        ALERT_ICONS,
+        AUDIO_AND_VIDEO_ICONS,
+        COMMUNICATION_ICONS,
+        CONTENT_ICONS,
+        DIVICE_ICONS,
+        EDITOR_ICONS,
+        FILE_ICONS,
+        HARDWARE_ICONS,
+        IMAGE_ICONS,
+        NAVIGATION_ICONS,
+        NOTIFICATION_ICONS,
+        SOCIAL_ICONS,
+    } = CONSTANT;
 
     const returnHtml = (category, items) => {
         return <>
