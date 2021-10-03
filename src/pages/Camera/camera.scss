@@ -1,0 +1,130 @@
+@import '../../scss/variables.scss';
+@import '../../scss/functions.scss';
+
+$size: 300;
+$size-log: 300;
+$margin-rec: 18;
+$padding-log: 2;
+$font-size-log: 12;
+$size-rec: 10;
+$border-video: 3;
+
+$pulse-rec-5: 5;
+$pulse-rec-13: 13;
+
+$top-control: -52;
+$left-control: 3;
+
+.camera-container {
+    & > video {
+        background-color: $gray-color;
+        display: inline-block;
+        height: calculateSizeVW($size);
+        width: 100%;
+        border: calculateSizeVW($border-video) solid $blue-color; 
+    }
+}
+
+.photo {
+    background-color: $gray-color;
+    width: 100%;
+    height: calculateSizeVW($size);
+    border: calculateSizeVW($border-video) solid $blue-color; 
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.log {
+    width: 100%;
+    height: calculateSizeVW($size-log);
+    line-height: normal;
+    padding: calculateSizeVW($padding-log);
+    font-size: calculateSizeVW($font-size-log);
+    border: calculateSizeVW($border-video) solid $blue-color; 
+}
+
+.container-controls-rec{
+    position: relative;
+    .controls-rec{
+        position: absolute; 
+        left: calculateSizeVW($left-control); 
+        top: calculateSizeVW($top-control); 
+        z-index: 1;
+        
+        & > .rec {
+            font-size: 0;
+            background-color: $red-color;
+            border: 0;
+            border-radius: 50%;
+            margin: calculateSizeVW($margin-rec);
+            outline: none;
+        
+            &.on{
+                width: calculateSizeVW($size-rec);
+                height: calculateSizeVW($size-rec);
+                animation-name: pulse;
+                animation-duration: 1.5s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+            }
+        }
+    }
+}
+
+
+@keyframes pulse{
+	0%{
+		box-shadow: 0px 0px calculateSizeVW($pulse-rec-5) 0px rgba(173,0,0,.3);
+	}
+	65%{
+		box-shadow: 0px 0px calculateSizeVW($pulse-rec-5) calculateSizeVW($pulse-rec-13) rgba(173,0,0,.3);
+	}
+	90%{
+		box-shadow: 0px 0px calculateSizeVW($pulse-rec-5) calculateSizeVW($pulse-rec-13) rgba(173,0,0,0);
+	}
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+
+    .camera-container {
+        & > video {
+            height: calculateSizePX($size);
+            border: calculateSizePX($border-video) solid $blue-color; 
+        }
+    }
+
+    .photo {
+        background-color: $gray-color;
+        width: 100%;
+        height: calculateSizePX($size);
+        border: calculateSizePX($border-video) solid $blue-color; 
+    }
+    
+    .log {
+        height: calculateSizePX($size-log);
+        padding: calculateSizePX($padding-log);
+        font-size: calculateSizePX($font-size-log);
+        border: calculateSizePX($border-video) solid $blue-color; 
+    }
+    
+    .container-controls-rec{
+
+        .controls-rec{
+
+            left: calculateSizePX($left-control); 
+            top: calculateSizePX($top-control); 
+
+            & > .rec {
+                margin: calculateSizePX($margin-rec);
+            
+                &.on{
+                    width: calculateSizePX($size-rec);
+                    height: calculateSizePX($size-rec);
+
+                }
+            }
+        }
+    }
+}

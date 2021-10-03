@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { STYLE_STATUS_CONTROL } from '../../utils/constant';
 
 /**
  * @decription Component TextBox
@@ -19,7 +20,7 @@ import PropTypes from 'prop-types';
  * @param eventFocus Function that will be invoked when the component is focused. 
  * @param eventBlur Function that will be invoked when the component is out of focus.
  * @param eventKeyDown Function that will be invoked when the key is down.
- * @returns Returns the code of an html element with the characteristics of the "TextBox".
+ * @returns Returns the code of an html element with the characteristics of the 'TextBox'.
 **/
 
 const TextBox = ({id, titleTop, placeholder, titleBottom, value, required, disabled, readOnly, noPaste, noCopy, size= 200, eventChange, eventFocus, eventBlur, eventKeyDown, ref = null}) => {
@@ -49,20 +50,20 @@ const TextBox = ({id, titleTop, placeholder, titleBottom, value, required, disab
 
     const style = () => {
         if (disabled) {
-            return "disabled";
+            return STYLE_STATUS_CONTROL.DISABLED;
         } else if (readOnly) {
-            return "readOnly";
+            return STYLE_STATUS_CONTROL.READ_ONLY;
         } else if (required && !value) {
-            return "required";
+            return STYLE_STATUS_CONTROL.REQUIRED;
         } else {
-            return "";
+            return '';
         }
     };
 
-    return <div className={"control-container "} >
+    return <div className={'control-container '} >
         <div className={style()} >
             <span htmlFor={id} >{titleTop}</span>
-            <input type="search"
+            <input type='search'
                 id={id}
                 name={id}
                 value={value}

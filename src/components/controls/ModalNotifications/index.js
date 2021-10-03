@@ -4,6 +4,12 @@ import UI from '..';
 import { TYPE_NOTIFICATION } from '../../utils/constant';
 import { jsonToArray } from '../../utils/functions'; 
 
+/**
+ * @decription ModalNotifications Component
+ * @author Rafael Orlando Márquez Cedeño
+ * @returns Returns the code of an html element with the characteristics of the 'ModalNotifications'.
+ */
+
 const ModalNotifications = ({ title, message, details, type = TYPE_NOTIFICATION.INFO, eventContinue, showModal, eventModal }) => {
 
     const getText = () => {

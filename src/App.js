@@ -1,30 +1,35 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import UI from '../src/components/controls';
+//import UI from '../src/components/controls';
+import UI from 'edt-lib';
 import Form from './pages/Forms';
 import Modals from './pages/Modals';
 import Icons from './pages/Icons';
 import Controls from './pages/Controls';
 import Description from './pages/Description';
-import '../src/scss/index.scss';
-
+import Camera from './pages/Camera';
+import Tables from './pages/Tables';
+//import '../src/scss/index.scss';
+import '../node_modules/edt-lib/src/scss/index.scss';
 
 const leftOptions = [
   { path: '/', name: 'Menu' },
   { path: '/About', name: 'Acerca de' },
-
-
 ];
+
+const APP_ICON_DEFAULT = 'list';
+
 const options = [
-  { path: '/Forms', name: 'Formularios', nameIcon: 'AppDefault' },
-  { path: '/Modals', name: 'Modales', nameIcon: 'AppDefault' },
-  { path: '/Icons', name: 'Iconos', nameIcon: 'AppDefault' },
-  { path: '/Controls', name: 'Controles', nameIcon: 'AppDefault' },
+  { path: '/Forms', name: 'Formularios', icon: APP_ICON_DEFAULT },
+  { path: '/Modals', name: 'Modales', icon: APP_ICON_DEFAULT },
+  { path: '/Icons', name: 'Iconos', icon: APP_ICON_DEFAULT },
+  { path: '/Controls', name: 'Controles', icon: APP_ICON_DEFAULT },
+  { path: '/Camera', name: 'Camera', icon: APP_ICON_DEFAULT },
+  { path: '/Tables', name: 'Tables', icon: APP_ICON_DEFAULT },
 ];
 
 const rightOptions = [{ path: '/Salir', name: 'Salir' },];
-
 
 function App() {
   return (<div className='main-container bg-white'>
@@ -35,7 +40,6 @@ function App() {
           rightOptions={rightOptions}
         />
       } />
-
       <Route exact path='/' render={() =>
         <UI.Menu
           options={options}
@@ -55,6 +59,8 @@ function App() {
       <Route exact path='/Modals' component={Modals} />
       <Route exact path='/Icons' component={Icons} />
       <Route exact path='/Controls' component={Controls} />
+      <Route exact path='/Camera' component={Camera} />
+      <Route exact path='/Tables' component={Tables} />
     </Router>
   </div>);
 }

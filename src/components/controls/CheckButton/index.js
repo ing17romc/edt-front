@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { STYLE_STATUS_CONTROL } from '../../utils/constant';
 
 /**
  * @decription Component CheckButton
@@ -11,25 +12,25 @@ import PropTypes from 'prop-types';
  * @param readOnly Boolean value to show the component read only (by default it is false).
  * @param value Value handled by the component
  * @param eventChange Function that will be invoked when there is a change.
- * @returns Returns the code of an html element with the characteristics of the "CheckButton".
+ * @returns Returns the code of an html element with the characteristics of the 'CheckButton'.
  */
 
 const CheckButton = ({ id, label, required, disabled, readOnly, checked, eventChange, ref = null }) => {
     
     const style = () => {
         if (disabled) {
-          return "disabled";
+          return STYLE_STATUS_CONTROL.DISABLED;
         } else if (readOnly) {
-          return "readOnly";
+          return STYLE_STATUS_CONTROL.READ_ONLY;
         } else if (required && !checked) {
-          return "required";
+          return STYLE_STATUS_CONTROL.REQUIRED;
         } else {
-          return "";
+          return '';
         }
       };
     
-    return <div className={`checkbutton  ${style()}`} >
-        <input type="checkbox"
+    return <div className={`checkbutton ${style()}`} >
+        <input type='checkbox'
             id={id}
             name={id}
             required={!disabled && required && !checked}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { getValueInput } from '../../components/utils/functions';
-import UI from '../../components/controls';
+//import UI from '../../components/controls';
+import UI from 'edt-lib';
 import { valuesSelector } from '../data';
 
 /**
@@ -8,23 +9,18 @@ import { valuesSelector } from '../data';
  * @author Rafael Orlando Márquez Cedeño
  */
 
-
 const Form = () => {
 
     const [state, setstate] = useState({
-
         text: 'This is a text example',
         checkButton: false,
         radioButton: '',
         selector: '',
         datePicker:  new Date().toString(),
-
         inputDisabled: false,
         inputRequired: false,
         inputReadOnly: false,
-
         buttonDisabled: false,
-
     });
 
     const [loading, setloading] = useState(false);
@@ -67,7 +63,7 @@ const Form = () => {
 
 
                 <div className='grid-secondary bg-light-gray '>
-                    <div className='start-1 size-5 padding-v-20'>
+                    <div className='start-1 size-20 padding-v-20'>
                         <h4>TextBox</h4>
                     </div>
                     <div className='start-1 size-6 padding-v-20'>
@@ -84,7 +80,7 @@ const Form = () => {
 
                 <div className='start-1  padding-v-20' />
                 <div className='grid-secondary bg-light-gray '>
-                    <div className='start-1 size-5 padding-v-20'>
+                    <div className='start-1 size-20 padding-v-20'>
                         <h4>TextArea</h4>
                     </div>
                     <div className='start-1 size-9 padding-v-20'>
@@ -98,7 +94,7 @@ const Form = () => {
 
                 <div className='start-1 padding-v-20' />
                 <div className='grid-secondary  bg-light-gray '>
-                    <div className='start-1 size-5 padding-v-20'>
+                    <div className='start-1 size-20 padding-v-20'>
                         <h4>CheckButton</h4>
                     </div>
                     <div className='start-1 size-2 padding-v-20'>
@@ -112,7 +108,7 @@ const Form = () => {
 
                 <div className='start-1 padding-v-20' />
                 <div className='grid-secondary bg-light-gray '>
-                    <div className='start-1 size-5 padding-v-20'>
+                    <div className='start-1 size-20 padding-v-20'>
                         <h4>RadioButton</h4>
                     </div>
 
@@ -130,7 +126,7 @@ const Form = () => {
 
                 <div className='start-1 padding-v-20' />
                 <div className='grid-secondary bg-light-gray '>
-                    <div className='start-1 size-5 padding-v-20'>
+                    <div className='start-1 size-20 padding-v-20'>
                         <h4>DatePicker</h4>
                     </div>
                     <div className='start-1 size-6 padding-v-20'>
@@ -141,7 +137,7 @@ const Form = () => {
 
                 <div className='start-1 padding-v-20' />
                 <div className='grid-secondary bg-light-gray '>
-                    <div className='start-1 size-5 padding-v-20'>
+                    <div className='start-1 size-20 padding-v-20'>
                         <h4>Selector</h4>
                     </div>
                     <div className='start-1 size-6 padding-v-20'>
@@ -178,7 +174,7 @@ const Form = () => {
 
                 <div className='start-1  padding-v-20' />
                 <div className='grid-secondary bg-light-gray '>
-                    <div className='start-1 size-5 padding-v-20'>
+                    <div className='start-1 size-20 padding-v-20'>
                         <h4>Button</h4>
                     </div>
                     <div className='start-1 size-4 padding-v-20'>
@@ -210,7 +206,7 @@ const Form = () => {
 
                 <div className='start-1  padding-v-20' />
                 <div className='grid-secondary bg-light-gray '>
-                    <div className='start-1 size-5 padding-v-20'>
+                    <div className='start-1 size-20 padding-v-20'>
                         <h4>TextButton</h4>
                     </div>
                     <div className='start-1 size-20 padding-v-20'>
@@ -221,9 +217,35 @@ const Form = () => {
                     </div>
                 </div>
 
+                <div className='start-1  padding-v-20' />
+                <div className='grid-secondary bg-light-gray '>
+                    <div className='start-1 size-20 padding-v-20'>
+                        <h4>ImageButton</h4>
+                    </div>
+
+                    <div className='start-1  size-2 padding-v-20'>
+                        <UI.ImageButton id='imageButton' size='lg' icon='search' text='search' onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
+                    </div>
+                    <div className=' size-2 padding-v-20'>
+                        <UI.ImageButton id='imageButton' icon='description' text='description' onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
+                    </div>
+                    <div className=' size-2 padding-v-20'>
+                        <UI.ImageButton id='imageButton' size='sm' icon='info' text='info' onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
+                    </div>
+                    <div className=' size-2 padding-v-20'>
+                        <UI.ImageButton id='imageButton' size='xs' icon='help' text='help' onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
+                    </div>
+
+                    <div className='size-3 padding-v-20'>
+                        <UI.ImageButton id='imageButton' icon='email' text='email' onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
+                        <UI.ImageButton id='imageButton' icon='chat' text='chat'  onClick={e => alert('clic!!!')} disabled={state.buttonDisabled} />
+                    </div>
+
+                </div>
+
 
                 <div className='start-1  padding-v-20' />
-                <div className='start-1 size-5 padding-v-20'>
+                <div className='start-1 size-20 padding-v-20'>
                     <h4>Title</h4>
                 </div>
                 <div className='grid-secondary'>
@@ -237,7 +259,7 @@ const Form = () => {
 
 
                 <div className='start-1 padding-v-20' />
-                <div className='start-1 size-5 padding-v-20'>
+                <div className='start-1 size-20 padding-v-20'>
                     <h4>Spinner</h4>
                 </div>
                 <div className='grid-secondary'>

@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import UI from '..';
 
+/**
+ * @decription ModalHttpMessage Component
+ * @author Rafael Orlando Márquez Cedeño
+ * @returns Returns the code of an html element with the characteristics of the 'ModalHttpMessage'.
+ */
+
 const ModalHttpMessage = ({ showModal, eventModal, code, title, message, details }) => {
     const style = (codeHttp) => {
         switch (true) {
@@ -58,7 +64,6 @@ const ModalHttpMessage = ({ showModal, eventModal, code, title, message, details
 ModalHttpMessage.propTypes = {
     showModal: PropTypes.bool.isRequired,
     eventModal: PropTypes.func,
-
     code: PropTypes.number,
     title: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,

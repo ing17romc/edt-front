@@ -1,5 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+
+/**
+ * @decription TextArea Component
+ * @author Rafael Orlando Márquez Cedeño
+ * @returns Returns the code of an html element with the characteristics of the 'TextArea'.
+ */
 
 const TextArea = ({ id, title, placeholder, value = '', required, disabled, readOnly, noPaste, noCopy, size, eventChange, eventFocus, eventBlur, eventKeyDown, ref = null, rows =2 }) => {
 
@@ -28,17 +35,17 @@ const TextArea = ({ id, title, placeholder, value = '', required, disabled, read
 
     const style = () => {
         if (disabled) {
-            return "disabled";
+            return STYLE_STATUS_CONTROL.DISABLED;
         } else if (readOnly) {
-            return "readOnly";
+            return STYLE_STATUS_CONTROL.READ_ONLY;
         } else if (required && !value) {
-            return "required";
+            return STYLE_STATUS_CONTROL.REQUIRED;
         } else {
-            return "";
+            return '';
         }
     };
 
-    return <div className={"control-container "} >
+    return <div className={'control-container '} >
         <div className={style()} >
             <span htmlFor={id} >{title}</span>
             <textarea
@@ -66,22 +73,17 @@ TextArea.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string,
     placeholder: PropTypes.string,
-
     value: PropTypes.string,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
-
     eventChange: PropTypes.func,
     eventFocus: PropTypes.func,
     eventBlur: PropTypes.func,
     eventKeyDown: PropTypes.func,
-
     readOnly: PropTypes.bool,
     noCopy: PropTypes.bool,
     noPaste: PropTypes.bool,
     rows: PropTypes.number,
 };
-
-
 
 export default TextArea;

@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
  * @author Rafael Orlando Márquez Cedeño
  * @param label Text to display in the component.
  * @param secundary Boolean value to show the component with secundary title (by default it is false).
+ * @returns Returns the code of an html element with the characteristics of the 'Title'.
 **/
 
 const Title = ({ label, secundary }) => {
@@ -13,13 +14,13 @@ const Title = ({ label, secundary }) => {
     let component;
 
     if (secundary) {
-        component = <div className="title">
-            <h4 className="font-bold">{label}</h4>
+        component = <div className='title'>
+            <h4 className='font-bold'>{label}</h4>
             <div className='line' />
         </div>;
     } else {
-        component = <div className="title">
-            <h2 className="font-bold">{label}</h2>
+        component = <div className='title'>
+            <h2 className='font-bold'>{label}</h2>
             <div className='line' />
         </div>;
     }

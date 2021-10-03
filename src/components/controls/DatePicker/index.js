@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ternaryOperation } from '../../utils/functions';
+import { STYLE_STATUS_CONTROL } from '../../utils/constant';
 
-const propTypes = {
-    id: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    eventChange: PropTypes.func.isRequired,
-    disabled: PropTypes.bool,
-    readOnly: PropTypes.bool,
-    required: PropTypes.bool,
-    title: PropTypes.string,
-};
-
-const dateformat = (month, day, year) => `${month}/${day}/${year}`;
+/**
+ * @decription DatePicker Component
+ * @author Rafael Orlando Márquez Cedeño
+ * @returns Returns the code of an html element with the characteristics of the 'DatePicker'.
+ */
 
 const DatePicker = ({id, title, value, eventChange, disabled, readOnly, required, ref=null}) => {
 
@@ -32,6 +27,8 @@ const DatePicker = ({id, title, value, eventChange, disabled, readOnly, required
     const [year, setYear] = useState(strYear);
     const [days, setDays] = useState([]);
 
+    const dateformat = (_month, _day, _year) => `${_month}/${_day}/${_year}`;
+
     const onChangeDay = e => {
         setDay(e.target.value);
         const strNewDate = dateformat(month, e.target.value, year);
@@ -47,7 +44,6 @@ const DatePicker = ({id, title, value, eventChange, disabled, readOnly, required
         const strNewDate = dateformat(month, day, e.target.value);
         updateDate(strNewDate);
     };
-
     const updateDate = (strNewDate) => {
         if ((Date.parse(strNewDate) && !strNewDate.startsWith('/') && !strNewDate.endsWith('/') && !strNewDate.includes('//'))) {
 
@@ -57,8 +53,6 @@ const DatePicker = ({id, title, value, eventChange, disabled, readOnly, required
         }
     };
 
-
-
     const id_day = `day_${id}`;
     const id_month = `month_${id}`;
     const id_year = `year_${id}`;
@@ -67,17 +61,17 @@ const DatePicker = ({id, title, value, eventChange, disabled, readOnly, required
     const titleMonth = 'Mes';
     const titleYear = 'Año';
 
-    const controlStyle = ternaryOperation(disabled, 'disabled', '');
+    const controlStyle = ternaryOperation(disabled, STYLE_STATUS_CONTROL.DISABLED, '');
 
     const style = (_value) => {
         if (disabled) {
-            return "disabled";
+            return STYLE_STATUS_CONTROL.DISABLED;
         } else if (readOnly) {
-            return "readOnly";
+            return STYLE_STATUS_CONTROL.READ_ONLY;
         } else if (required && !_value) {
-            return "required";
+            return STYLE_STATUS_CONTROL.REQUIRED;
         } else {
-            return "";
+            return '';
         }
     };
 
@@ -89,8 +83,6 @@ const DatePicker = ({id, title, value, eventChange, disabled, readOnly, required
         }
         return array;
     }
-
-
 
     useEffect(() => {
         const isLeapYear = (_year) => {
@@ -206,6 +198,14 @@ const DatePicker = ({id, title, value, eventChange, disabled, readOnly, required
     </div>;
 };
 
-DatePicker.propTypes = propTypes;
+DatePicker.propTypes =  {
+    id: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    eventChange: PropTypes.func.isRequired,
+    disabled: PropTypes.bool,
+    readOnly: PropTypes.bool,
+    required: PropTypes.bool,
+    title: PropTypes.string,
+};
 
 export default DatePicker;

@@ -12,9 +12,11 @@ import DatePicker  from './DatePicker';
 import Modal from './Modal';
 import ModalNotifications from './ModalNotifications';
 import ModalHttpMessage from './ModalHttpMessage';
+import ModalViewerPDF from './ModalViewerPDF';
 import Icon from './Icon';
 import Menu from './Menu';
 import Option from './Option';
+import ImageButton from './ImageButton'
 
 
  const UI = {
@@ -30,10 +32,12 @@ import Option from './Option';
     Modal,
     ModalNotifications,
     ModalHttpMessage,
+    ModalViewerPDF,
     Icon,
     NavBar,
     Option,
     Menu,
+    ImageButton,
     Spinner,
  };
  

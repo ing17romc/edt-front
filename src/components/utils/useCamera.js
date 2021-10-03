@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 
-export function useUserMediaRecorder() {
+export function useCamera() {
 
   const mediaRecorder = useRef();
   const mount = useRef(true);
@@ -40,8 +40,8 @@ export function useUserMediaRecorder() {
   };
 
   const outputFormatVideos = [
-    { valor: 'video/webm;codecs=vp8,opus', leyenda: 'WebM (.webm)' },
-    { valor: 'video/mp4', leyenda: 'MPEG-4 (.mp4)' },
+    { key: 'video/webm;codecs=vp8,opus', value: 'WebM (.webm)' },
+    { key: 'video/mp4', value: 'MPEG-4 (.mp4)' },
   ];
 
   const getVideoSource = async () => await getDevices('videoinput');

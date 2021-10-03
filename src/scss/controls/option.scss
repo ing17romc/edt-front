@@ -3,7 +3,7 @@
 
 $size-container: 160;
 $border-container: 1;
-$size-img: 65;
+$size-img: 70;
 $border-hr: 1;
 
 .container-option {
@@ -18,11 +18,11 @@ $border-hr: 1;
     text-decoration: none;
     color: $blue-color;
     border: calculateSizeVW($border-container) solid $blue-color;
+    text-align: center;
 
-    & img {
+    & .material-icons {
         margin: auto auto;
-        height: calculateSizeVW($size-img);
-        width: calculateSizeVW($size-img);
+        font-size: calculateSizeVW($size-img); 
     }
 
     & hr {
@@ -32,7 +32,7 @@ $border-hr: 1;
     }
 
     & p {
-        text-align: center;
+        
         padding: 3%;
     }
 }
@@ -43,9 +43,8 @@ $border-hr: 1;
         height: calculateSizePX($size-container);
         width: calculateSizePX($size-container);
 
-        & img {
-            height: calculateSizePX($size-img);
-            width: calculateSizePX($size-img);
+        & .material-icons  {
+            font-size: calculateSizePX($size-img); 
         }
 
         & hr {

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import { getInitialValue } from '../../utils/functions';
 
 /**
  * @decription Component Selector
@@ -13,7 +15,7 @@ import PropTypes from 'prop-types';
  * @param value Value handled by the component
  * @param eventChange Function that will be invoked when there is a change.
  * @param options List of options the component.
- * @returns Returns the code of an html element with the characteristics of the "Selector".
+ * @returns Returns the code of an html element with the characteristics of the 'Selector'.
 **/
 
 const Selector = ({ id, titleTop, titleBottom, value, required, disabled, readOnly, eventChange, options = [], ref = null }) => {
@@ -26,20 +28,14 @@ const Selector = ({ id, titleTop, titleBottom, value, required, disabled, readOn
 
     const style = () => {
         if (disabled) {
-            return "disabled";
+            return STYLE_STATUS_CONTROL.DISABLED;
         } else if (readOnly) {
-            return "readOnly";
+            return STYLE_STATUS_CONTROL.READ_ONLY;
         } else if (required && !value) {
-            return "required";
+            return STYLE_STATUS_CONTROL.REQUIRED;
         } else {
-            return "";
+            return '';
         }
-    };
-
-    const validate = (newValue, initialValue) => {
-        if (newValue === undefined || newValue === null) {
-            return initialValue;
-        } else { return newValue; }
     };
 
     return <div className={'control-container '} >
@@ -57,7 +53,7 @@ const Selector = ({ id, titleTop, titleBottom, value, required, disabled, readOn
                     options.map((element, index) =>
                         <option
                             key={index}
-                            value={validate(element.key, element.value)}>
+                            value={getInitialValue(element.key, element.value)}>
 
                             {element.value}
 
@@ -77,13 +73,11 @@ Selector.propTypes = {
     id: PropTypes.string.isRequired,
     titleTop: PropTypes.string,
     titleBottom: PropTypes.string,
-
     value: PropTypes.any.isRequired,
     eventChange: PropTypes.func.isRequired,
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     readOnly: PropTypes.bool,
-
     options: PropTypes.arrayOf(
         PropTypes.shape({
             value: PropTypes.any,

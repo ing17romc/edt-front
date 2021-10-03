@@ -1,31 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SIZE_CONTROL } from '../../utils/constant';
-import { icons } from '../../utils/icons';
+import { SIZE_CONTROL, ICONS } from '../../utils/constant';
 import { jsonToArray } from '../../utils/functions';
 
-const nameIcons = icons.map(element => element.key);
-
-const getImg = (_name) => {
-    const result = icons.find(element => {
-        return element.key === _name
-    });
-
-    if (result) {
-        return result.value;
-    } else {
-        return '';
-    }
-}
+/**
+ * @decription Icon Component
+ * @author Rafael Orlando Márquez Cedeño
+ * @returns Returns the code of an html element with the characteristics of the 'Icon'.
+ */
 
 const Icon = ({ name, size = SIZE_CONTROL.MD }) => {
+
     return <div className={`container-icon ${size}`} >
-        <img loading='lazy' id={name} src={getImg(name)} alt={name} />
+        <div className='material-icons'>{name}</div>
     </div>;
-}
+
+};
 
 Icon.propTypes = {
-    name: PropTypes.oneOf(nameIcons).isRequired,
+    name: PropTypes.oneOf(ICONS).isRequired,
     size: PropTypes.oneOf(jsonToArray(SIZE_CONTROL)),
 };
 

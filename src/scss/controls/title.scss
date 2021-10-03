@@ -9,8 +9,9 @@
         flex: 1 1 auto;
         background-color: $black-color;
         width: max-content;
-        position: relative;
+        //position: relative;
         margin-left: calculateSizeVW(12);
+        margin-top: calculateSizeVW(19);
         height: calculateSizeVW(4);
         top: calculateSizeVW(23);
     }
@@ -20,6 +21,7 @@
     .title {
         .line {
             margin-left: 12px;
+            margin-top: 19px;
             height: 4px;
             top: 23px;
         }

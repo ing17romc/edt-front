@@ -1,4 +1,3 @@
-const funciones = {};
 
 export const jsonToArray = (json) => {
     const result = [];
@@ -10,7 +9,7 @@ export const jsonToArray = (json) => {
 export const getOptionsSelector = (json) => {
     const result = [];
     for (var i in json)
-        result.push({key:json[i], value: json[i]});
+        result.push({ key: json[i], value: json[i] });
     return result;
 }
 
@@ -28,7 +27,7 @@ export const getValueInput = e => {
         else if (e.target.tagName.toLowerCase() === 'button') {
             return { key: e.target.id, value: '' };
         }
-        else if (e.target.tagName.toLowerCase() === 'textarea' ||  e.target.tagName.toLowerCase() === 'select' ) {
+        else if (e.target.tagName.toLowerCase() === 'textarea' || e.target.tagName.toLowerCase() === 'select') {
             return { key: e.target.id, value: e.target.value };
         }
     } else if (e) {
@@ -39,27 +38,10 @@ export const getValueInput = e => {
     }
 };
 
-funciones.actualizarElemento = (lista, campoABuscar, valorABucar, campoACambiar, valorNuevo) => {
-    lista.forEach(function (elemento) {
-        if (elemento[campoABuscar] === valorABucar) {
-            elemento[campoACambiar] = valorNuevo;
-        }
-    });
-    return lista;
-};
-
-funciones.actualizarJSON = (json, nuevoJson) => {
-    for (const clave in json) {
-        if (json.hasOwnProperty(clave) && nuevoJson.hasOwnProperty(clave)) {
-            json[clave] = nuevoJson[clave];
-        }
-    }
-};
-
-export const validarValor = (valorNuevo, valorInicial) => {
-    if (valorNuevo === undefined || valorNuevo === null) {
-        return valorInicial;
-    } else { return valorNuevo; }
+export const getInitialValue = (newValue, initialValue) => {
+    if (newValue === undefined || newValue === null) {
+        return initialValue;
+    } else { return newValue; }
 };
 
 export const ternaryOperation = (condicion, valorVerdadero, valorFalso) => {
@@ -70,17 +52,20 @@ export const ternaryOperation = (condicion, valorVerdadero, valorFalso) => {
     }
 };
 
-export const soloNumero = valor => validarValor(valor, '').replace(/[^0-9]/g, '');
-// falta los acentos y la Ñ
-export const soloAlfanumericoConEspacio = valor => validarValor(valor, '').replace(/[^\wñÑáÁéÉíÍóÓúÚ\s]/g, '');
-// falta los acentos y la Ñ
-export const soloAlfanumericoSinEspacio = valor => validarValor(valor, '').replace(/[\W]/g, '');
+export const onlyNumber = value =>
+    getInitialValue(value, '').replace(/[^0-9]/g, '');
 
-export const textoMinusculas = valor => validarValor(valor, '').toLowerCase();
+export const onlyAlphanumericWithSpace = value =>
+    getInitialValue(value, '').replace(/[^\wñÑáÁéÉíÍóÓúÚ\s]/g, '');
 
-export const textoMayusculas = valor => validarValor(valor, '').toUpperCase();
+export const onlyAlphanumericWithoutSpace = value =>
+    getInitialValue(value, '').replace(/[\W]/g, '');
 
-export const textoCapitalizar = valor => validarValor(valor, '').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));
+export const lowerCaseText = value =>
+    getInitialValue(value, '').toLowerCase();
 
+export const upperCaseText = value =>
+    getInitialValue(value, '').toUpperCase();
 
-export default funciones;
+export const capitalText = value =>
+    getInitialValue(value, '').replace(/\w\S*/g, (w) => (w.replace(/^\w/, (c) => c.toUpperCase())));

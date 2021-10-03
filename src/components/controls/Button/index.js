@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { SIZE_CONTROL, STYLE_CONTROL } from '../../utils/constant';
-import { jsonToArray } from '../../utils/functions';
+import { jsonToArray, ternaryOperation } from '../../utils/functions';
 
 /**
  * @decription Component Button
@@ -22,7 +22,8 @@ const Button = ({ id, title, disabled, onClick, type = STYLE_CONTROL.PRIMARY, si
     return <button
         id={id}
         className={`${type} ${size}`}
-        onClick={e => onClick(e)}
+        type={ternaryOperation(onClick, 'button', 'submit')}
+        onClick={e => { if (onClick) onClick(e) }}
         disabled={disabled}>
         {title}
     </button>

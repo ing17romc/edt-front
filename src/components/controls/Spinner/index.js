@@ -1,14 +1,14 @@
 import React from 'react';
 
 /**
- * @fileoverview Función que retorna el efecto de cargando.
+ * @decription Función que retorna el efecto de cargando.
  * @author Rafael Orlando Márquez Cedeño
  * @returns Retorna el HTML del efecto cargando.
  */
 const Spinner = () => {
     return (
-        <div className="container-load">
-            <div className="loading"/>
+        <div className='container-load'>
+            <div className='loading'/>
         </div>
     )
 }

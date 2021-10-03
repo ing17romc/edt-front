@@ -1,0 +1,38 @@
+@import "../variables.scss";
+@import "../functions.scss";
+
+
+$height-viewer: 730;
+$width-viewer: 600;
+$height-pdf: $height-viewer - 120;
+$width-pdf: $width-viewer - 50;
+
+.body-viewer-pdf {
+    display: block;
+    height: calculateSizeVW($height-viewer);
+    width: calculateSizeVW($width-viewer);
+
+        .container-pdf {
+            background-color: gray;
+            display: block;
+            width: calculateSizeVW($width-pdf);
+            height: calculateSizeVW($height-pdf);
+            margin: auto auto auto auto;
+            overflow: scroll;
+            canvas {
+                margin: auto auto auto auto;
+            }
+        }
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+    .body-viewer-pdf {
+        height: calculateSizePX($height-viewer);
+        width: calculateSizePX($width-viewer);
+
+            .container-pdf {
+                width: calculateSizePX($width-pdf);
+                height: calculateSizePX($height-pdf);
+            }
+    }
+}

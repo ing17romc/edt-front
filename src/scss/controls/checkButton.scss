@@ -17,7 +17,7 @@ $label-line-height: 18;
 
     & label {
         font-size: calculateSizeVW($font-size-control);
-        position: relative;
+        position: initial;
         height: calculateSizeVW($label-height);
         padding-top: calculateSizeVW($label-padding-top);
         padding-left: calculateSizeVW($label-padding-left);

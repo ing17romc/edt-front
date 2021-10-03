@@ -1,44 +1,57 @@
-@import '../variables.scss';
-@import '../functions.scss';
+@import "../variables.scss";
+@import "../functions.scss";
 
 $padding-v: 16;
-$padding-h: 14;
+$padding-h: 18;
+$height: 70;
 
-/* Add a black background color to the top navigation */
-.topnav {
-  background-color: $blue-color;
-  overflow: hidden;
+.container-nav-bar-father {
+  z-index: 10;
+  position: fixed;
+
+  .container-nav-bar {
+    position: fixed;
+    width: 100%;
+    .topnav {
+      background-color: $blue-color;
+      overflow: hidden;
+    }
+    .topnav a {
+      float: left;
+      color: $white-color;
+      text-align: center;
+      padding: calculateSizeVW($padding-v) calculateSizeVW($padding-h);
+      text-decoration: none;
+    }
+    .topnav a:hover {
+      background-color: $light-gray-color;
+      color: $black-color;
+    }
+    .topnav a.active {
+      background-color: $white-color;
+      color: $black-color;
+      font-weight: bold;
+    }
+    .topnav-right {
+      float: right;
+    }
+  }
 }
-
-/* Style the links inside the navigation bar */
-.topnav a {
-  float: left;
-  color: $white-color;
-  text-align: center;
-  padding: calculateSizeVW($padding-h) calculateSizeVW($padding-v);
-  text-decoration: none;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-  background-color: $light-gray-color;
-  color: $black-color;
-}
-
-/* Add a color to the active/current link */
-.topnav a.active {
-  background-color: $white-color;
-  color: $black-color;
-  font-weight: bold;
-}
-
-/* Right-aligned section inside the top navigation */
-.topnav-right {
-  float: right;
+.nav-bar-margin-bootom {
+  height: calculateSizeVW($height);
 }
 
 @media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
-  .topnav a {
-    padding: calculateSizePX($padding-h) calculateSizePX($padding-v);
+  .container-nav-bar-father {
+    height: calculateSizePX($height);
+    .container-nav-bar {
+      width: calculateSizePX($min-height-screen);
+      .topnav a {
+        padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
+      }
+    }
+  }
+  .nav-bar-margin-bootom {
+    height: calculateSizePX($height);
   }
 }

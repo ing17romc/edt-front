@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { getValueInput } from '../../components/utils/functions';
 import { civilStatus } from '../data';
-import UI from '../../components/controls';
+//import UI from '../../components/controls';
+import UI from 'edt-lib';
 
 /**
  * @decriptionFuntion Seach Results Component
@@ -41,9 +42,15 @@ const Form = () => {
         }
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        alert(`Form submitted`);    
+    }
+
     return <>
 
         {loading && <UI.Spinner />}
+        <form onSubmit={handleSubmit}>
         <div className='container-body'>
             <div className='grid-primary'>
                 <div className='start-1 size-12 padding-v-20'>
@@ -123,15 +130,15 @@ const Form = () => {
         <div className='grid-primary padding-v-10'>
 
             <div className='start-9 size-2 padding-v-10'>
-                <UI.Button title='Cargando' type='secondary' onClick={() => setloading(true)} disabled={state.disabled} />
+                <UI.Button title='Cargando' type='secondary' onClick={(e) => setloading(true)} disabled={state.disabled} />
             </div>
             <div className='size-2 padding-v-10'>
-                <UI.Button title='Continue' type='primary' onClick={() => setloading(true)} disabled={state.disabled} />
+                <UI.Button title='Continue' type='primary' disabled={state.disabled} />
             </div>
 
         </div>
 
-
+    </form>
 
     </>;
 };

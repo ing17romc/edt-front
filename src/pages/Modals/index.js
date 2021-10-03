@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { getValueInput, getOptionsSelector } from '../../components/utils/functions';
 import { TYPE_NOTIFICATION } from '../../components/utils/constant';
 import { httpCodes } from '../data';
-import UI from '../../components/controls';
+//import UI from '../../components/controls';
+import UI from 'edt-lib';
 
 /**
  * @decriptionFuntion Seach Results Component
@@ -15,6 +16,7 @@ const Modales = () => {
     const [state, setstate] = useState({
         typeNotification: 'info',
         httpCode: 500,
+        pdf: 'https://colaboracion.uv.mx/rept/files/2017/09/214/Guia-para-elaborar-avisos-de-privacidad.pdf',
     });
 
 
@@ -33,10 +35,10 @@ const Modales = () => {
     const [modal, setModal] = useState(false);
     const [modalNotifications, setModalNotifications] = useState(false);
     const [modalHttpMessage, setModalHttpMessage] = useState(false);
+    const [modalViewerPDF, setModalViewerPDF] = useState(false);
 
 
     return <>
-
         <div className='container-body'>
             <div className='grid-primary '>
 
@@ -73,19 +75,26 @@ const Modales = () => {
                     <div className='start-1 size-7 padding-v-10'>
                         <UI.Button title='Mostrar modal de notificaciones' type='secondary' onClick={() => { if (state.typeNotification) { setModalNotifications(!modalNotifications) } }} />
                     </div>
-
                     <div className=' size-7 padding-v-10'>
                         <UI.Button title='Mostrar modal respuesta http' type='secondary' onClick={() => setModalHttpMessage(!modalHttpMessage)} />
                     </div>
-
                     <div className=' size-6 padding-v-10'>
                         <UI.Button title='Mostrar Generico' type='secondary' onClick={() => setModal(!modal)} />
+                    </div>
+                    <div className='start-1 size-20 padding-v-10'>
+                        <UI.TextButton id='btnModalViewerPDF' text=' Mostrar visor de PDF ' onClick={() =>  setModalViewerPDF(!modalViewerPDF)} />
                     </div>
 
                 </div>
 
             </div>
         </div>
+
+        <UI.ModalViewerPDF
+            showModal={modalViewerPDF}
+            eventModal={() => setModalViewerPDF(!modalViewerPDF)}
+            pdf={state.pdf}
+        />
 
         <UI.Modal show={modal} eventModal={() => setModal(!modal)} >
             <div className='padding-v-40 padding-h-40'>
