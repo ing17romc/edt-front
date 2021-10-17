@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UI from '..';
+import Modal from '../Modal';
+import Title from '../Title';
+import Button from '../Button';
 import { TYPE_NOTIFICATION } from '../../utils/constant';
 import { jsonToArray } from '../../utils/functions';
 
@@ -35,11 +37,11 @@ const ModalNotifications = ({
 	};
 
 	return (
-		<UI.Modal show={showModal} eventModal={e => eventModal(e)}>
+		<Modal show={showModal} eventModal={e => eventModal(e)}>
 			<div className='body-generic-notifications '>
 				<div className='grid-primary'>
 					<div className='start-1 size-12 '>
-						<UI.Title label={title} secundary={true} />
+						<Title label={title} secundary={true} />
 					</div>
 
 					<div className='center start-1 size-12 padding-v-40  '>
@@ -57,7 +59,7 @@ const ModalNotifications = ({
 					</div>
 
 					<div className='padding-v-20 start-9 size-4'>
-						<UI.Button
+						<Button
 							title='Continuar'
 							type='primary'
 							onClick={e => eventContinue(e)}
@@ -65,7 +67,7 @@ const ModalNotifications = ({
 					</div>
 				</div>
 			</div>
-		</UI.Modal>
+		</Modal>
 	);
 };
 

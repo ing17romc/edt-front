@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UI from '..';
+import Modal from '../Modal';
+import Title from '../Title';
+import TextArea from '../TextArea';
 
 /**
  * @decription ModalHttpMessage Component
@@ -34,11 +36,11 @@ const ModalHttpMessage = ({
 	};
 
 	return (
-		<UI.Modal show={showModal} eventModal={e => eventModal(e)}>
+		<Modal show={showModal} eventModal={e => eventModal(e)}>
 			<div className='body-generic-http-message'>
 				<div className=' grid-primary'>
 					<div className='start-1 size-12 '>
-						<UI.Title label='Mensaje HTTP' secundary={true} />
+						<Title label='Mensaje HTTP' secundary={true} />
 					</div>
 					<div className=' grid-secondary padding-v-50'>
 						<div className='center start-1 size-20   '>
@@ -59,7 +61,7 @@ const ModalHttpMessage = ({
 					</div>
 
 					<div className='start-1 size-12 padding-v-50  '>
-						<UI.TextArea
+						<TextArea
 							rows={6}
 							id='Detalles'
 							value={details}
@@ -69,7 +71,7 @@ const ModalHttpMessage = ({
 					</div>
 				</div>
 			</div>
-		</UI.Modal>
+		</Modal>
 	);
 };
 
