@@ -1,5 +1,5 @@
 import React from 'react';
-import Option from 'components/controls/Option';
+import Option from '../Option';
 import PropTypes from 'prop-types';
 
 /**

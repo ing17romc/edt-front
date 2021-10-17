@@ -1,6 +1,6 @@
 import React from 'react';
 // import UI from 'edt-lib';
-import UI from 'components';
+import UI from '../../components';
 import { dataTable } from '../data';
 
 const Modales = () => {

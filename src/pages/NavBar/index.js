@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useLocation, useHistory } from 'react-router-dom';
 // import UI from 'edt-lib';
-import UI from 'components';
+import UI from '../../components';
 
 const NavBar = ({ leftOptions, rightOptions }) => {
 	const location = useLocation();

@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 // import UI from 'edt-lib';
-import UI from 'components';
+import UI from '../../components';
 
 const Menu = ({ options }) => {
 	const history = useHistory();

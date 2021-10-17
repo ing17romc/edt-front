@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 // import UI, { useCamera } from 'edt-lib';
-import UI, { useCamera } from 'components';
+import UI, { useCamera } from '../../components';
 
 import './camera.scss';
 

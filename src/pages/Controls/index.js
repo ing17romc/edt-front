@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // import UI, { functions } from 'edt-lib';
-import UI, { functions } from 'components';
+import UI, { functions } from '../../components';
 
 import { valuesSelector } from '../data';
 

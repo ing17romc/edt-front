@@ -1,5 +1,5 @@
-@import 'scss/functions.scss';
-@import 'scss/variables.scss';
+@import './functions.scss';
+@import './variables.scss';
 
 @mixin padding($number, $size) {
 	.padding-v-#{$number} {

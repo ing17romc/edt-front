@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { STYLE_STATUS_CONTROL } from 'components/utils/constant';
-import { getInitialValue } from 'components/utils/functions';
+import { STYLE_STATUS_CONTROL } from '../../utils/constant';
+import { getInitialValue } from '../../utils/functions';
 
 /**
  * @decription Component Selector

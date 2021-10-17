@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import UI from 'components/controls';
-import { TYPE_NOTIFICATION } from 'components/utils/constant';
-import { jsonToArray } from 'components/utils/functions';
+import UI from '..';
+import { TYPE_NOTIFICATION } from '../../utils/constant';
+import { jsonToArray } from '../../utils/functions';
 
 /**
  * @decription ModalNotifications Component

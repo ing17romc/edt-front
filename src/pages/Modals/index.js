@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { httpCodes } from '../data';
 // import UI, { functions, CONSTANT } from 'edt-lib';
-import UI, { functions, CONSTANT } from 'components';
+import UI, { functions, CONSTANT } from '../../components';
 
 const Modales = () => {
 	const { TYPE_NOTIFICATION } = CONSTANT;

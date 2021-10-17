@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SIZE_CONTROL, STYLE_CONTROL } from 'components/utils/constant';
-import { jsonToArray, ternaryOperation } from 'components/utils/functions';
+import { SIZE_CONTROL, STYLE_CONTROL } from '../../utils/constant';
+import { jsonToArray, ternaryOperation } from '../..//utils/functions';
 
 /**
  * @decription Component Button

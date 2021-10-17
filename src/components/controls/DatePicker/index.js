@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { ternaryOperation } from 'components/utils/functions';
-import { STYLE_STATUS_CONTROL } from 'components/utils/constant';
+import { ternaryOperation } from '../../utils/functions';
+import { STYLE_STATUS_CONTROL } from '../../utils/constant';
 
 /**
  * @decription DatePicker Component

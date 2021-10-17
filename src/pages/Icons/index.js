@@ -1,6 +1,6 @@
 import React from 'react';
 // import UI, { CONSTANT } from 'edt-lib';
-import UI, { CONSTANT } from 'components';
+import UI, { CONSTANT } from '../../components';
 
 const Icons = () => {
 	const {

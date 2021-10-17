@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ICONS } from 'components/utils/constant';
+import { ICONS } from '../../utils/constant';
 
 /**
  * @decription Option the a menu Component

@@ -4,9 +4,9 @@ import {
 	STYLE_STATUS_CONTROL,
 	SIZE_CONTROL,
 	ICONS,
-} from 'components/utils/constant';
-import { ternaryOperation, jsonToArray } from 'components/utils/functions';
-import Icon from 'components/controls/Icon';
+} from '../../utils/constant';
+import { ternaryOperation, jsonToArray } from '../../utils/functions';
+import Icon from '../Icon';
 /**
  * @decription Component ImageButton
  * @author Rafael Orlando Márquez Cedeño

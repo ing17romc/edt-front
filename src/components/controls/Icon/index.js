@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { SIZE_CONTROL, ICONS } from 'components/utils/constant';
-import { jsonToArray } from 'components/utils/functions';
+import { SIZE_CONTROL, ICONS } from '../../utils/constant';
+import { jsonToArray } from '../../utils/functions';
 
 /**
  * @decription Icon Component

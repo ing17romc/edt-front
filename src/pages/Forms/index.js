@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { civilStatus } from '../data';
 // import UI, { functions } from 'edt-lib';
-import UI, { functions } from 'components';
+import UI, { functions } from '../../components';
 
 const Form = () => {
 	const { getValueInput } = functions;
