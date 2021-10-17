@@ -1,0 +1,53 @@
+@import 'scss/variables.scss';
+@import 'scss/functions.scss';
+
+$size-container: 160;
+$border-container: 1;
+$size-img: 70;
+$border-hr: 1;
+
+.container-option {
+	background-color: $white-color;
+	cursor: pointer;
+	margin: auto auto;
+	display: block;
+	padding: 3%;
+	border-radius: 10%;
+	height: calculateSizeVW($size-container);
+	width: calculateSizeVW($size-container);
+	text-decoration: none;
+	color: $primary-color-1;
+	border: calculateSizeVW($border-container) solid $primary-color-1;
+	text-align: center;
+
+	& .material-icons {
+		margin: auto auto;
+		font-size: calculateSizeVW($size-img);
+	}
+
+	& hr {
+		margin: auto auto;
+		border: calculateSizeVW($border-hr) $gray-color solid;
+		margin: 4%;
+	}
+
+	& p {
+		padding: 3%;
+	}
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+	.container-option {
+		border: calculateSizePX($border-container) solid $primary-color-1;
+		height: calculateSizePX($size-container);
+		width: calculateSizePX($size-container);
+
+		& .material-icons {
+			font-size: calculateSizePX($size-img);
+		}
+
+		& hr {
+			border: calculateSizePX($border-hr) $gray-color solid;
+		}
+	}
+}

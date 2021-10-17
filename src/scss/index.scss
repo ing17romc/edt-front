@@ -1,0 +1,24 @@
+@use 'sass:math';
+@import 'scss/cleaner.scss';
+@import 'scss/grids.scss';
+@import 'scss/general.scss';
+@import 'scss/forms.scss';
+@import 'scss/fonts.scss';
+@import 'scss/colors.scss';
+
+@import 'scss/controls/button.scss';
+@import 'scss/controls/checkButton.scss';
+@import 'scss/controls/radioButton.scss';
+@import 'scss/controls/spinner.scss';
+@import 'scss/controls/title.scss';
+@import 'scss/controls/navBar.scss';
+@import 'scss/controls/textButton.scss';
+@import 'scss/controls/datePicker.scss';
+@import 'scss/controls/modal.scss';
+@import 'scss/controls/modalNotifications.scss';
+@import 'scss/controls/modalHttpMessage.scss';
+@import 'scss/controls/modalViewerPDF.scss';
+@import 'scss/controls/icon.scss';
+@import 'scss/controls/option.scss';
+@import 'scss/controls/imageButton.scss';
+@import 'scss/controls/table.scss';

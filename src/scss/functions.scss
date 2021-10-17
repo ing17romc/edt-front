@@ -1,0 +1,9 @@
+$min-height-screen: 1025;
+
+@function calculateSizePX($unidad: 1) {
+	@return $unidad * 1px;
+}
+
+@function calculateSizeVW($pixeles: 1, $resolucion: $min-height-screen - 1) {
+	@return ($pixeles * 100) / $resolucion * 1vw;
+}

@@ -1,0 +1,42 @@
+@import 'scss/variables.scss';
+@import 'scss/functions.scss';
+
+$padding: 10;
+table {
+	width: 100%;
+	background-color: $white-color;
+	& tr {
+		text-align: justify;
+		padding: calculateSizeVW($padding);
+		& th {
+			border-bottom: 2px solid $primary-color-1;
+			padding: calculateSizeVW($padding);
+		}
+		& td {
+			border-top: 1px solid $primary-color-1;
+			padding: calculateSizeVW($padding);
+		}
+		&.active {
+			&:hover {
+				background-color: $light-gray-color;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+	table {
+		& tr {
+			padding: calculateSizePX($padding);
+			& th {
+				border-bottom: 2px solid $primary-color-1;
+				padding: calculateSizePX($padding);
+			}
+			& td {
+				border-top: 1px solid $primary-color-1;
+				padding: calculateSizePX($padding);
+			}
+		}
+	}
+}

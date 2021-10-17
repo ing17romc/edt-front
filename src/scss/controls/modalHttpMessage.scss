@@ -1,0 +1,28 @@
+@import 'scss/variables.scss';
+@import 'scss/functions.scss';
+
+$width: 600;
+
+.body-generic-http-message {
+	width: calculateSizeVW($width);
+	.code-one-hundred {
+		color: #4eb434;
+	}
+	.code-two-hundred {
+		color: #e4a226;
+	}
+	.code-three-hundred {
+		color: #fb0c1f;
+	}
+	.code-four-hundred {
+		color: #0e6f7a;
+	}
+	.code-five-hundred {
+		color: #5c043e;
+	}
+}
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+	.body-generic-http-message {
+		width: calculateSizePX($width);
+	}
+}

@@ -1,0 +1,58 @@
+@import 'scss/variables.scss';
+@import 'scss/functions.scss';
+
+$padding-v: 24;
+$padding-h: 18;
+$height: 78;
+
+.container-nav-bar-father {
+	z-index: 10;
+	position: fixed;
+
+	.container-nav-bar {
+		position: fixed;
+		width: 100%;
+		.topnav {
+			background-color: $primary-color-1;
+			overflow: hidden;
+		}
+		.topnav label {
+			float: left;
+			color: $white-color;
+			text-align: center;
+			padding: calculateSizeVW($padding-v) calculateSizeVW($padding-h);
+			text-decoration: none;
+			cursor: pointer;
+			opacity: 0.6;
+		}
+		.topnav label:hover {
+			color: $white-color;
+			opacity: 1;
+		}
+		.topnav label.active {
+			color: $white-color;
+			opacity: 1;
+		}
+		.topnav-right {
+			float: right;
+		}
+	}
+}
+.nav-bar-margin-bootom {
+	height: calculateSizeVW($height);
+}
+
+@media screen and (min-width: calculateSizePX($min-height-screen)) and (hover: hover) and (pointer: fine) {
+	.container-nav-bar-father {
+		height: calculateSizePX($height);
+		.container-nav-bar {
+			width: calculateSizePX($min-height-screen);
+			.topnav label {
+				padding: calculateSizePX($padding-v) calculateSizePX($padding-h);
+			}
+		}
+	}
+	.nav-bar-margin-bootom {
+		height: calculateSizePX($height);
+	}
+}

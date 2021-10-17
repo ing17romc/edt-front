@@ -1,0 +1,38 @@
+@import 'scss/variables.scss';
+@import 'scss/functions.scss';
+
+.modal {
+	display: block; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 30; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	border-radius: 1%;
+	background-color: #fefefe;
+	margin: 10% auto; /* 15% from the top and centered */
+	width: fit-content; /* Could be more or less, depending on screen size */
+}
+
+.modal-container {
+	display: block;
+	text-align: right;
+	.modal-close-button {
+		display: inline;
+		cursor: pointer;
+	}
+}
+.modal-body {
+	display: block;
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+}

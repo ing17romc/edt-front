@@ -1,0 +1,47 @@
+$grid-primary-padding-v: 2.9296875%;
+$grid-primary-column-gap: 2.09751037%;
+$grid-primary-width-cols: 6.43153527%;
+
+$grid-secundary-padding-v: 2.0746888%;
+$grid-secundary-column-gap: 3.35497835%;
+$grid-secundary-width-cols: 1.73160173%;
+
+.grid-primary {
+	display: grid;
+	width: 100%;
+	padding-left: $grid-primary-padding-v;
+	padding-right: $grid-primary-padding-v;
+	grid-template-columns: $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols $grid-primary-width-cols;
+	grid-column-gap: $grid-primary-column-gap;
+}
+
+.grid-primary .grid-primary,
+.grid-primary .grid-secondary,
+.grid-secondary .grid-primary,
+.grid-secondary .grid-secondary {
+	display: inline !important;
+}
+
+.grid-primary > .grid-secondary {
+	display: grid !important;
+	width: 100%;
+	padding-left: $grid-secundary-padding-v;
+	padding-right: $grid-secundary-padding-v;
+	grid-template-columns: $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap $grid-secundary-column-gap;
+	grid-column-gap: $grid-secundary-width-cols;
+	grid-column-start: 1 !important;
+	grid-column-end: span 12 !important;
+}
+
+@mixin grids($number) {
+	.start-#{$number} {
+		grid-column-start: $number;
+	}
+	.size-#{$number} {
+		grid-column-end: span $number;
+	}
+}
+
+@for $i from 1 through 20 {
+	@include grids($i);
+}

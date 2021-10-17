@@ -1,0 +1,34 @@
+@import 'scss/variables.scss';
+@import 'scss/functions.scss';
+
+$height-viewer: 750;
+$width-viewer: 700;
+$height-pdf: $height-viewer - 80;
+$width-pdf: $width-viewer - 50;
+
+.body-viewer-pdf {
+	display: block;
+	height: calculateSizeVW($height-viewer);
+	width: calculateSizeVW($width-viewer);
+
+	iframe {
+		background-color: gray;
+		display: block;
+		width: calculateSizeVW($width-pdf);
+		height: calculateSizeVW($height-pdf);
+		margin: auto auto auto auto;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+	.body-viewer-pdf {
+		height: calculateSizePX($height-viewer);
+		width: calculateSizePX($width-viewer);
+
+		iframe {
+			width: calculateSizePX($width-pdf);
+			height: calculateSizePX($height-pdf);
+		}
+	}
+}

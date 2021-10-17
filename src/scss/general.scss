@@ -1,0 +1,116 @@
+@import 'scss/functions.scss';
+@import 'scss/variables.scss';
+
+@mixin padding($number, $size) {
+	.padding-v-#{$number} {
+		padding: {
+			top: $size;
+			bottom: $size;
+		}
+	}
+
+	.padding-top-#{$number} {
+		padding: {
+			top: $size;
+		}
+	}
+
+	.padding-bottom-#{$number} {
+		padding: {
+			bottom: $size;
+		}
+	}
+
+	.padding-h-#{$number} {
+		padding: {
+			left: $size;
+			right: $size;
+		}
+	}
+}
+
+.disabled {
+	opacity: $disabled-opacity;
+}
+
+@mixin line-height($number, $size) {
+	.line-height-#{$number} {
+		line-height: $size;
+	}
+}
+
+@for $i from 1 through 60 {
+	$number: $i * 5;
+
+	@include padding($number, calculateSizeVW($number/2));
+	@include line-height($i, calculateSizeVW($i));
+}
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+.center-horizontal {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+}
+.center-vertical {
+	display: flex;
+	justify-content: normal;
+	align-items: center;
+	text-align: center;
+}
+.hide {
+	visibility: hidden;
+}
+
+$min-height: 600;
+.container-body {
+	height: auto;
+	min-height: calculateSizeVW($min-height);
+}
+
+.main-container {
+	width: auto;
+	max-width: calculateSizeVW($min-height-screen);
+	margin: 0 auto;
+	min-height: 100vh;
+}
+
+body {
+	background-color: $primary-color-2;
+	color: $black-color;
+	font-size: calculateSizeVW($fs-18);
+}
+
+.little-hand {
+	cursor: pointer;
+}
+
+.line-spacing {
+	line-height: normal;
+}
+.strong {
+	font-weight: bold;
+}
+@media only screen and (min-width: calculateSizePX($min-height-screen)) {
+	.main-container {
+		max-width: calculateSizePX($min-height-screen);
+	}
+
+	@for $i from 1 through 60 {
+		$number: $i * 5;
+
+		@include padding($number, calculateSizePX($number/2));
+		@include line-height($i, calculateSizePX($i));
+	}
+	.container-body {
+		min-height: calculateSizePX($min-height);
+	}
+	body {
+		color: $black-color;
+		font-size: calculateSizePX($fs-18);
+	}
+}
